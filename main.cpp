@@ -2,7 +2,7 @@
 #include <string>
 #include "curlbuffer.h"
 
-#define BOARDLENGTH 1 
+#define BOARDLENGTH 3 
 
 using namespace std;
 
@@ -20,9 +20,9 @@ void tryName( int i, string Test)
 	string Alphabet = "abcdefghijklmnopqrstuvwxyz1234567890";
 	for ( int j = 0; j < Alphabet.size(); j++)
 	{
+		Test[i] = Alphabet[j];
 		if ( i == Test.size() - 1)
 		{
-			Test[i] = Alphabet[j];
 			string BoardUrl = "http://8chan.co/";
 			BoardUrl.append( Test);
 			string BoardContent = ( string) getWebPage( ( char*) BoardUrl.c_str());
@@ -30,12 +30,8 @@ void tryName( int i, string Test)
 			{
 				cout << "Board /" << Test << "/ found (" << BoardUrl << ")\n";
 			}
-			else
-			{
-				cout << "Board /" << Test << "/ not found\n";
-			}
 		}
-		if ( i < Test.size() - 1)
+		else
 		{
 			tryName( i + 1, Test);
 		}
