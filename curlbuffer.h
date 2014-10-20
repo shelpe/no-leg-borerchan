@@ -51,13 +51,11 @@ char* getWebPage( char* TargetUrl) // returns a whole webpage in a char array in
 	char* WebPageString;
 	if ( WebPageOut.Size)
 	{
-		cout << "Grab successful\n";
 		char* WebPageString = WebPageOut.Buffer;
 		return WebPageString;
 	}
 	else
 	{
-		cout << "ERROR: Webpage 404\n";
 		return "\r\b\r";
 	}
 }
