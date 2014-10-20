@@ -29,6 +29,7 @@ void tryName( int i, string Test)
 			if ( reactToPage( BoardContent))
 			{
 				cout << "Board /" << Test << "/ found (" << BoardUrl << ")\n";
+				cout.flush();
 			}
 		}
 		else
