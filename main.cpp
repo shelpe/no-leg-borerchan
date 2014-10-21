@@ -28,7 +28,7 @@ void tryName( int i, string Test)
 			string BoardContent = ( string) getWebPage( ( char*) BoardUrl.c_str());
 			if ( reactToPage( BoardContent))
 			{
-				cout << "Board /" << Test << "/ found (" << BoardUrl << ")\n";
+				cout << Test << endl;
 				cout.flush();
 			}
 		}
