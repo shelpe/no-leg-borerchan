@@ -70,7 +70,6 @@ char* getWebPage( char* TargetUrl) // returns a whole webpage in a char array in
 		UserAgentList[UserAgentCount] = UserAgent;
 	}
 	UserAgentFile.close();
-	cout << RefererList[rand() % RefererCount] << " " << UserAgentList[rand() % UserAgentCount] << endl;
 
 	if ( CurlHandle)
 	{
