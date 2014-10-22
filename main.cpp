@@ -1,3 +1,4 @@
+#include <fstream>
 #include <iostream>
 #include <string>
 #include "curlbuffer.h"
@@ -8,7 +9,17 @@ using namespace std;
 
 bool reactToPage( string BoardContent)
 {
-	if ( BoardContent.find( "<title>404 Not Found</title>") != -1)
+	if ( BoardContent == "no_referers")
+	{
+		cerr << "Please put newline separated http referers in 'referers.txt'.  Exiting...\n";
+		exit(0);
+	}
+	else if ( BoardContent == "no_useragents")
+	{
+		cerr << "Please put newline separated http user agents in 'useragents.txt'.  Exiting...\n";
+		exit(0);
+	}
+	else if ( BoardContent.find( "<title>404 Not Found</title>") != -1)
 	{
 		return false;
 	}
