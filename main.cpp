@@ -52,9 +52,12 @@ void tryName( int i, string Test)
 
 int main()
 {
-	string Test;
-	Test.resize( BOARDLENGTH);
-	Test.assign( Test.size(), 'a');
-	tryName( 0, Test);
+	for ( int BoardLength = 1; BoardLength <= BOARDLENGTH; BoardLength++)
+	{
+		string Test;
+		Test.resize( BoardLength);
+		Test.assign( Test.size(), 'a');
+		tryName( 0, Test);
+	}
 	return 0;
 }

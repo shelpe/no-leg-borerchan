@@ -6,7 +6,7 @@
 #include <jsmn.h>
 #include "curlbuffer.h"
 
-#define BOARDLENGTH 2
+#define BOARDLENGTH 3
 
 using namespace std;
 
@@ -50,7 +50,7 @@ int main()
 	int JsonTokenCount = BoardsTokenInfo.Size;
 	
 	string Boards_s = ( string) Boards;
-	string BoardList[1000];
+	string BoardList[2000];
 	int BoardCount = 0;
 	int i = 0;
 	for ( bool IsDone = false; IsDone == false; IsDone)
@@ -63,12 +63,15 @@ int main()
 		{
 			if ( readJsonString( Boards_s, JsonTokens[i]) == "uri")
 			{
-				if ( readJsonString( Boards_s, JsonTokens[i+1]).size() == BOARDLENGTH)
+				for ( int j = 1; j <= BOARDLENGTH; j++)
 				{
-					BoardList[BoardCount] = readJsonString( Boards_s, JsonTokens[i+1]);
-					cout << BoardList[BoardCount] << endl;
-					cout.flush();
-					BoardCount++;
+					if ( readJsonString( Boards_s, JsonTokens[i+1]).size() == j)
+					{
+						BoardList[BoardCount] = readJsonString( Boards_s, JsonTokens[i+1]);
+						cout << BoardList[BoardCount] << endl;
+						cout.flush();
+						BoardCount++;
+					}
 				}
 			}
 		}
